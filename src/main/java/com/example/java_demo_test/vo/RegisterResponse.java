@@ -14,7 +14,7 @@ public class RegisterResponse {
 	
 	private String message;
 	
-	private LocalDateTime regTime = LocalDateTime.now();
+	private LocalDateTime regTime;
 	
 	public RegisterResponse() {
 		super();
