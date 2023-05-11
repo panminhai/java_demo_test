@@ -31,7 +31,7 @@ public class BankTest {
 	
 	@Test
 	public void addBankInfo() {
-		Bank bank = new Bank("A06", "aa131", 1900);	//(呼叫類別ank)填入資料: 虛擬資料 
+		Bank bank = new Bank("A06", "aa131", 1900);	//(呼叫類別bank)填入資料: 虛擬資料 
 
 //		Bank bank2 = new Bank("A03", "AA125", 2000);
 		
@@ -66,7 +66,7 @@ public class BankTest {
 		
 		Bank oldBank = bankDao.save(new Bank("WA01", "WA123", 5000));
 		
-		Bank newBank = (new Bank("WA01", "WA123", 6000));
+		Bank newBank = (new Bank("WA01", "WA123", 4000));
 		
 		BankResponse response = bankService.withdraw(newBank);
 		

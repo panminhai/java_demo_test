@@ -10,8 +10,9 @@ import com.example.java_demo_test.entity.Bank;
 import com.example.java_demo_test.respository.BankDao;
 import com.example.java_demo_test.service.ifs.BankService;
 import com.example.java_demo_test.vo.BankResponse;
+
 /*
- * 資料處理並啟用bankDao去接觸並存入數據庫(斷點確認)
+ * 資料處理後啟用bankDao去接觸並存入數據庫(斷點確認)
  */
 
 // 實作介面"BankService"
@@ -24,7 +25,8 @@ public class BankServiceImpl implements BankService {
 	// 密碼防呆(教師答案)
 	private String patternPwd1 = "[\\w~!@#$%&*]{8,16}";
 
-	// Autowired: 不需要建構式(~new~)就能使用註釋@service的物件
+	// Autowired: 請Springboot託管BankDao的資料() 
+	// 不需要建構式(~new~)就能使用註釋@service的物件
 	@Autowired
 	private BankDao bankDao;
 
@@ -132,7 +134,7 @@ public class BankServiceImpl implements BankService {
 //		Bank newBank = bankDao.save(resBank);
 //		return newBank;
 		
-		return new BankResponse(bankDao.save(resBank), "儲存成功!!!");
+		return new BankResponse(bankDao.save(resBank), "資料儲存成功!!!");
 	}
 	
 	@Override
