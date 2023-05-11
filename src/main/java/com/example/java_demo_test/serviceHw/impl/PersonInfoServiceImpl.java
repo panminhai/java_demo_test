@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
+import com.example.java_demo_test.constants.RtnCode;
 import com.example.java_demo_test.entity.PersonInfo;
 import com.example.java_demo_test.respository.PersonInfoDao;
 import com.example.java_demo_test.serviceHw.ifs.PersonInfoService;
@@ -30,7 +31,10 @@ public class PersonInfoServiceImpl implements PersonInfoService {
 		/* Step1:防呆檢查(不要有無效資料) */
 		// Collection: List集合 isEmpty:檢查是否null or empty
 		if (CollectionUtils.isEmpty(personInfoList)) {
-			return new PersonInfoResponse("新增資料錯誤!");
+			
+//			return new PersonInfoResponse("新增資料錯誤!");
+			
+			return new PersonInfoResponse(RtnCode.DATALIST_ERROR.getMessage());
 		}
 
 		/* Step2: 檢查List的每項資訊(PersonInfo) */

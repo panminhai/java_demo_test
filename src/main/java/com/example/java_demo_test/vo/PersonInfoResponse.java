@@ -10,7 +10,7 @@ import com.example.java_demo_test.entity.PersonInfo;
 public class PersonInfoResponse {
 	
 	// 回傳內容(resPersonInfo, message)
-	// resPersonInfo: 回復訊息&結果
+	// resPersonInfo: 回復訊息&結果(前端要輸入)
 	private List<PersonInfo> resPersonInfo;
 	
 	private String message;

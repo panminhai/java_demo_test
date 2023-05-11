@@ -3,6 +3,8 @@ package com.example.java_demo_test.serviceHw.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -22,10 +24,18 @@ public class LoginServiceImpl implements LoginService {
 	// 密碼格式設定
 	private String patternPwd = "\\W{1}\\w{7,11}";
 	
-	private String patternPwd2 = "^(?=)$";
+	// 密碼格式設定(教師解)
+	/*
+	 * \p: 表示比對的字元具備某種特性
+	 * Punct: 表示標點符號(!#$%&*()...)
+	 */
+	private String patternPwd2 = "^\\p{Punct}$";
+	private String patternPwd3 = "^(?=.*[\\p{Punct}])[\\S]{8,12}$";
+	private String patternPwd4 = "^(?=.*[\\S^\\w])";
 
 	@Autowired
 	private LoginDao loginDao;
+	
 	// 先處理空直null值再執行
 	@Override
 	public LoginResponse addLoginData(List<Login> login) {
